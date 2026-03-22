@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Lucky Color</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Spin Your 2026 Fashion Colors</h1>
+            <p class="subtitle">Discover today's lucky shade + perfect pairings.</p>
+            <a href="https://form.typeform.com/to/XMX7vBNh" target="_blank" class="quiz-button">
+                Find Your Personalized Palette
+            </a>
+        </header>
+
+        <div class="wheel-container">
+            <div class="wheel-wrapper">
+                <canvas id="colorWheel" width="500" height="500"></canvas>
+                <div class="wheel-center">
+                    <button id="spinButton" class="spin-button">
+                        <span class="button-text">SPIN</span>
+                    </button>
+                </div>
+                <div class="pointer"></div>
+            </div>
+        </div>
+
+        <!-- Modal Popup -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="color-preview" id="colorPreview"></div>
+                    <h2 id="colorName">Color Name</h2>
+                    <p id="colorMessage" class="color-message"></p>
+                    <button id="learnMoreButton" class="learn-more-button">Color Combinations</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learn More Modal -->
+        <div id="learnMoreModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-learn-more">&times;</span>
+                    <h2>Color Combinations</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="colorCombinations"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

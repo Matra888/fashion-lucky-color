@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin Your Spring / Summer 2026 Fashion Colors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title-lines">
+                <span class="title-line-1">Spin Your</span>
+                <span class="title-line-2">Spring / Summer 2026</span>
+                <span class="title-line-3">Fashion Colors</span>
+            </h1>
+            <p class="subtitle">Click the middle button inside the wheel.</p>
+        </header>
+
+        <div class="social-proof-card">
+            <span class="social-proof-highlight">2,000+</span> people discovered their colors this week
+        </div>
+        <div class="wheel-container">
+            <div class="wheel-wrapper">
+                <canvas id="colorWheel" width="500" height="500"></canvas>
+                <div class="wheel-center">
+                    <button id="spinButton" class="spin-button">
+                        <span class="button-text">SPIN</span>
+                    </button>
+                </div>
+                <div class="pointer"></div>
+            </div>
+        </div>
+        <div class="fomo-card">
+            <strong>Spring / Summer 2026</strong> will be just once — live it fully with your personalized colors.
+        </div>
+
+        <!-- Modal Popup -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="color-preview" id="colorPreview"></div>
+                    <h2 id="colorName">Color Name</h2>
+                    <p id="colorMessage" class="color-message"></p>
+                    <button id="learnMoreButton" class="learn-more-button">Color Combinations</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learn More Modal -->
+        <div id="learnMoreModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-learn-more">&times;</span>
+                    <h2>Color Combinations</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="colorCombinations"></div>
+                    <div class="email-capture-section">
+                        <h3 class="palette-cta-headline">Don't leave without your full palette.</h3>
+                        <p class="value-proposition">Full personalized seasonal palette + styling tips + full makeup palette colors delivered in PDF after 4-minute quiz. Get the palette used by stylists!</p>
+                        <p class="email-capture-prompt">Is this really your color? Personalized assessment will help you to understand!</p>
+                        <form id="paletteEmailForm" name="palette-email" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="palette-email">
+                            <p class="hidden">
+                                <label>Don't fill this out: <input name="bot-field"></label>
+                            </p>
+                            <input type="email" name="email" placeholder="Your email" required class="email-input">
+                            <button type="submit" class="palette-cta-button">Get my full palette assessment</button>
+                            <p class="form-trust-line">No spam. Unsubscribe anytime.</p>
+                        </form>
+                        <p id="emailSuccessMessage" class="email-success-message" style="display: none;">Thanks, we will send you a quiz for palette assessment soon!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Canva Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f7f7 50%, #f0eeee 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+header h1 {
+    font-family: 'Abril Fatface', serif;
+    color: #0d090a;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    color: #361f27;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        padding: 0 10px;
+    }
+    
+    .quiz-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        display: block;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .wheel-container {
+        margin: 15px 0;
+    }
+    
+    #colorWheel {
+        max-width: 100%;
+        height: auto;
+        width: 100% !important;
+        max-width: min(100vw - 40px, 500px);
+    }
+    
+    .spin-button {
+        width: 80px;
+        height: 80px;
+        font-size: 1rem;
+    }
+    
+    .pointer {
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 30px solid #fff;
+        top: -15px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .modal-body {
+        padding: 25px 20px;
+    }
+    
+    .color-preview {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #colorName {
+        font-size: 1.5rem;
+    }
+    
+    .color-message {
+        font-size: 1rem;
+    }
+    
+    .learn-more-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .combination-colors {
+        gap: 8px;
+    }
+    
+    .combination-color {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .quiz-button {
+        font-size: 0.85rem;
+        padding: 10px 18px;
+    }
+    
+    .spin-button {
+        width: 70px;
+        height: 70px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-body {
+        padding: 20px 15px;
+    }
+    
+    .color-preview {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #colorName {
+        font-size: 1.3rem;
+    }
+    
+    .color-message {
+        font-size: 0.95rem;
+    }
+}
+
+.quiz-button {
+    display: inline-block;
+    background: #912f56;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    border: 2px solid #912f56;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.quiz-button:hover {
+    background: #7a2547;
+    border-color: #7a2547;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(145, 47, 86, 0.3);
+}
+
+.wheel-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.wheel-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#colorWheel {
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    background: white;
+}
+
+.wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.spin-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #912f56 0%, #521945 100%);
+    border: 4px solid white;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(82, 25, 69, 0.3);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.spin-button:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.spin-button:disabled {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.spin-button.stop-mode {
+    background: linear-gradient(135deg, #361f27 0%, #0d090a 100%);
+}
+
+.spin-button.stop-mode:hover:not(:disabled) {
+    background: linear-gradient(135deg, #521945 0%, #361f27 100%);
+}
+
+.button-text {
+    display: block;
+}
+
+.pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #fff;
+    z-index: 5;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 9, 10, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #521945 0%, #361f27 100%);
+    color: white;
+    position: relative;
+}
+
+.modal-header h2 {
+    font-family: 'Abril Fatface', serif;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.close, .close-learn-more {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.close:hover, .close-learn-more:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.modal-body {
+    padding: 40px;
+    text-align: center;
+}
+
+.color-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: 0 5px 20px rgba(13, 9, 10, 0.15);
+    border: 5px solid #f5f5f5;
+}
+
+#colorName {
+    font-family: 'Abril Fatface', serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #0d090a;
+    font-weight: 400;
+}
+
+.color-message {
+    font-size: 1.1rem;
+    color: #361f27;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.learn-more-button {
+    background: linear-gradient(135deg, #912f56 0%, #521945 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(145, 47, 86, 0.3);
+    font-weight: 500;
+}
+
+.learn-more-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(145, 47, 86, 0.4);
+}
+
+/* Color Combinations */
+.color-combination {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #e8e8e8;
+}
+
+.combination-colors {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.combination-color {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+}
+
+.combination-name {
+    font-weight: bold;
+    color: #0d090a;
+    margin-bottom: 5px;
+}
+
+.combination-description {
+    font-size: 0.9rem;
+    color: #361f27;
+}
