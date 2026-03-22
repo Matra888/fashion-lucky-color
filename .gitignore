@@ -16,3 +16,6 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Personal details (never push to GitHub)
+MY_DETAILS.txt
+
